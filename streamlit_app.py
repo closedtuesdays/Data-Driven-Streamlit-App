@@ -28,7 +28,9 @@ streamlit.dataframe(fruits_to_show)
 #create  the repeatable code block (called a function)
 def get_fruityvice_data(this_fruit_choice):
   fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
+  # takes the json version of the response and normalizes it in a variable 
   fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+  # outputs the normalized json variable
   return fruityvice_normalized
   
 #New Section to display fruityvice API response
@@ -45,12 +47,6 @@ except URLError as e:
     streamlit.error()
 
 
-#fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-#streamlit.text(fruityvice_response.json()) #just writes the data to the screen
-# takes the json version ofthe response and normalizes it in a variable 
-#fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-# outputs the normalized json variable
-#streamlit.dataframe(fruityvice_normalized)
 # dont run anything past here while we troubleshoot
 streamlit.stop()
 
