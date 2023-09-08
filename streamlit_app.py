@@ -38,16 +38,14 @@ try:
 
 except URLError as e:
     streamlit.error()
-streamlit.write('The user entered ', fruit_choice)
 
 
-#import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+#fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 #streamlit.text(fruityvice_response.json()) #just writes the data to the screen
 # takes the json version ofthe response and normalizes it in a variable 
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+#fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # outputs the normalized json variable
-streamlit.dataframe(fruityvice_normalized)
+#streamlit.dataframe(fruityvice_normalized)
 # dont run anything past here while we troubleshoot
 streamlit.stop()
 
